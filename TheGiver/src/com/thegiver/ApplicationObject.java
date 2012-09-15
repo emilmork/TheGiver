@@ -1,15 +1,15 @@
 package com.thegiver;
-import com.thegiver.managers.NetworkManager;
+import com.thegiver.managers.PathManager;
 
 import android.app.Application;
 
 public class ApplicationObject extends Application {
-	public NetworkManager nm;
+	public PathManager pm;
 
 	
 	@Override
 	public void onCreate() {
 		super.onCreate();
-		nm = new NetworkManager();
+		pm = new PathManager();
 	}
 }

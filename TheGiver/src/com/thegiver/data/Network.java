@@ -4,12 +4,18 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.net.URI;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.StatusLine;
 import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.DefaultHttpClient;
+
+import android.util.Log;
 
 import com.google.gson.*;
 import com.thegiver.models.PathContainer;
@@ -18,8 +24,9 @@ import com.thegiver.utils.UtilRef;
 public class Network {
 	
 	private static Network network;
-	private Gson gson;
-	private InputStream is;
+	private  Gson gson;
+	private  InputStream is;
+	private String json;
 	
 	private Network(){
 		gson = new Gson();
@@ -39,8 +46,9 @@ public class Network {
 	 * @return
 	 */
 	public PathContainer getPathContainer(){
-		String json = getJsonFromURL(UtilRef.JSON_URL);
-		return getPathContainerFromJson(json);
+		json = getJsonFromUrl(UtilRef.JSON_URL);
+		PathContainer p = getPathContainerFromJson(json);
+		return p;
 	}
 	
 	/**
@@ -48,45 +56,38 @@ public class Network {
 	 * @param url
 	 * @return
 	 */
-	private String getJsonFromURL(String url){	 
-	        // Making HTTP request
-	        try {
-	            // defaultHttpClient
-	            DefaultHttpClient httpClient = new DefaultHttpClient();
-	            HttpPost httpPost = new HttpPost(url);
-	 
-	            HttpResponse httpResponse = httpClient.execute(httpPost);
-	            HttpEntity httpEntity = httpResponse.getEntity();
-	            is = httpEntity.getContent();           
-	 
-	        } catch (UnsupportedEncodingException e) {
-	            e.printStackTrace();
-	        } catch (ClientProtocolException e) {
-	            e.printStackTrace();
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	        }
-	 
-	        try {
-	            BufferedReader reader = new BufferedReader(new InputStreamReader(is, "iso-8859-1"), 8);
-	            StringBuilder sb = new StringBuilder();
-	            String line = null;
-	            while ((line = reader.readLine()) != null) {
-	                sb.append(line + "n");
-	            }
-	            is.close();
-	            return sb.toString();
-	        } catch (Exception e) {
-	           e.printStackTrace();
-	           return null;
-	        }
-	}
+	  public String getJsonFromUrl(String url) {
+		    StringBuilder builder = new StringBuilder();
+		    HttpClient client = new DefaultHttpClient();
+		    HttpGet httpGet = new HttpGet(url);
+		    try {
+		      HttpResponse response = client.execute(httpGet);
+		      StatusLine statusLine = response.getStatusLine();
+		      int statusCode = statusLine.getStatusCode();
+		      if (statusCode == 200) {
+		        HttpEntity entity = response.getEntity();
+		        InputStream content = entity.getContent();
+		        BufferedReader reader = new BufferedReader(new InputStreamReader(content));
+		        String line;
+		        while ((line = reader.readLine()) != null) {
+		          builder.append(line);
+		        }
+		      } else {
+		        Log.i("hei","else dono network");
+		      }
+		    } catch (ClientProtocolException e) {
+		      e.printStackTrace();
+		    } catch (IOException e) {
+		      e.printStackTrace();
+		    }
+		    return builder.toString();
+		  }
 	/**
 	 * Get PathContainer Object from JSON
 	 * @param json
 	 * @return
 	 */
-	public PathContainer getPathContainerFromJson(String json){
+	private PathContainer getPathContainerFromJson(String json){
 		PathContainer container = gson.fromJson(json, PathContainer.class);
 		return container;
 	}
