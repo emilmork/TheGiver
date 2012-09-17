@@ -2,6 +2,7 @@ package com.thegiver.managers;
 
 import java.util.ArrayList;
 
+import com.thegiver.data.Storage;
 import com.thegiver.models.basic.Card;
 
 public class CardManager {
@@ -17,15 +18,13 @@ public class CardManager {
 	public Card getCurrentCard(){
 		return current;
 	}
-	//TODO get all cards from file or database
-	//Need func to download all images from objects
-	//Try syncronizing objects first
+
 	public ArrayList<Card> getAllCards(){
-		return null;
+		return Storage.getInstance().getAllCards();
 	}
 	
 	public Card getCard(int id){
-		return null;
+		return Storage.getInstance().getCard(id);
 	}
 	
 	
