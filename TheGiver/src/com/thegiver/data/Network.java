@@ -18,7 +18,7 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import android.util.Log;
 
 import com.google.gson.*;
-import com.thegiver.models.PathContainer;
+import com.thegiver.models.basic.PathContainer;
 import com.thegiver.utils.UtilRef;
 
 public class Network {

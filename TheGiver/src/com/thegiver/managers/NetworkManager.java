@@ -1,7 +1,7 @@
 package com.thegiver.managers;
 
 import com.thegiver.data.Network;
-import com.thegiver.models.PathContainer;
+import com.thegiver.models.basic.PathContainer;
 
 public class NetworkManager {
 	private static NetworkManager networkmanager;

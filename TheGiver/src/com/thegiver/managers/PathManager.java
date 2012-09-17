@@ -2,7 +2,7 @@ package com.thegiver.managers;
 
 import java.util.ArrayList;
 
-import com.thegiver.models.PathContainer;
+import com.thegiver.models.basic.PathContainer;
 
 public class PathManager {
 	public PathContainer pathcontainer;

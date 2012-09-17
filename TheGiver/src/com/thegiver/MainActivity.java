@@ -1,6 +1,6 @@
 package com.thegiver;
 
-import com.thegiver.models.PathContainer;
+import com.thegiver.models.basic.PathContainer;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
