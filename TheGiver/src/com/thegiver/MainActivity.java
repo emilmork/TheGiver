@@ -1,39 +1,53 @@
 package com.thegiver;
-import com.thegiver.models.basic.PathContainer;
+
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Handler;
-import android.widget.Toast;
 
 public class MainActivity extends SuperActivity {
-	Handler h;
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        
-        
-        new AsyncTask<String,Void,PathContainer>() {
-        	 protected void onPreExecute() {
-        	 // do something before the hard work, like tell the user what you are going to do
-        	}
 
-        	protected PathContainer doInBackground(String... aParams) {
-        	 // do some expensive work
-        		return app.pm.getPathcontainer();
-        	 }
+	@Override
+	public void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.splash_activity);
 
-        	protected void onPostExecute(PathContainer result) {
-        		Toast.makeText(getApplicationContext(),"Categories downloaded: "+ result.getCategories().size(), Toast.LENGTH_LONG).show();
-        	}
-        	}.execute();
- 
-    }
-    
-    
- 
-    
-    
-    
-   
+	}
+	@Override
+	public void onResume(){
+		super.onResume();
+		splashTask.execute();
+	}
+	
+	public void onPause(){
+		super.onPause();
+		if(!splashTask.isCancelled()){
+			splashTask.cancel(true);
+		}
+	}
+
+	private AsyncTask<Void, Void, Void> splashTask = new AsyncTask<Void, Void, Void>() {
+		protected void onPreExecute() {
+		}
+
+		protected Void doInBackground(Void... params) {
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			app.pm.getPathcontainer();
+			this.onPostExecute();
+			return null;
+		}
+
+		protected void onPostExecute() {
+			if(!this.isCancelled()){
+				this.cancel(true);
+				startActivity(new Intent(getApplicationContext(), MenuActivity.class));
+				MainActivity.this.finish();
+			}
+		}
+	};
+
 }

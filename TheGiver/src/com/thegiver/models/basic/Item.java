@@ -1,6 +1,8 @@
 package com.thegiver.models.basic;
 
-public class Item {
+import com.thegiver.models.graphic.GraphicalObject;
+
+public class Item extends GraphicalObject {
 	String path;
 	String name;
 	

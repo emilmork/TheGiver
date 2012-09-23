@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/layout_fill_fill"
+    android:background="@drawable/meny_background"
+    android:orientation="vertical"
+    android:paddingTop="10sp" >
+
+    <!-- Sky objects -->
+
+ <include layout="@layout/sky_elements"/>
+
+    <!-- Menu buttons -->
+
+    <Button
+        android:id="@+id/meny_newcard_button"
+        style="@style/meny_button_style"
+        android:background="@drawable/menu_button_create"
+        android:paddingTop="45sp"
+        android:text="@string/new_card" >
+    </Button>
+
+    <Button
+        android:id="@+id/meny_archive"
+        style="@style/meny_button_style"
+        android:layout_below="@id/meny_newcard_button"
+        android:background="@drawable/menu_button_archive"
+        android:text="@string/archive" >
+    </Button>
+
+    <!-- Bottom grass elements -->
+
+    <include layout="@layout/meny_grass" />
+
+    <!-- Givver figure on the grass -->
+
+    <ImageView
+        android:id="@+id/meny_givver_id"
+        style="@style/layout_wrap_wrap"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10sp"
+        android:layout_marginRight="10sp" >
+    </ImageView>
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This layout har a merge tag, and can be used be other xml files. Merge is using the highest layout hierarki -->
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <!-- Two animals placed relative to left and right, the others are placed at their sides -->
+
+    <ImageView
+        style="@style/layout_wrapheight_fillwidth"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/hovedmeny_gress_bak_repitert" >
+    </ImageView>
+
+    <ImageView
+        style="@style/layout_wrap_wrap"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/hovedmeny_gress_mellom" >
+    </ImageView>
+
+    <ImageView
+        style="@style/layout_wrap_wrap"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/hovedmeny_gress_foran" >
+    </ImageView>
+
+</merge>

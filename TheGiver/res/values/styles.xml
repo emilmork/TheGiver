@@ -1,5 +1,75 @@
-<resources>
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <style name="AppTheme" parent="android:Theme.Light" />
+    <style name="layout_wrap_wrap">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="layout_fill_fill">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="layout_wrapheight_fillwidth">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+    </style>
+
+    <style name="layout_fillheight_wrapwidth">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">wrap_content</item>
+    </style>
+
+    <style name="status_button_style">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50sp</item>
+        <item name="android:layout_marginBottom">5sp</item>
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:layout_centerHorizontal">true</item>
+    </style>
+    <!-- Big standard buttons -->
+    <style name="standard_button_style" parent="status_button_style">
+        <item name="android:layout_margin">5sp</item>
+        <item name="android:layout_height">100sp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:textSize">30sp</item>
+        <item name="android:background">@drawable/gradient_sky_background</item>
+    </style>
+
+    <style name="meny_button_style" parent="layout_wrap_wrap">
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@android:color/background_dark</item>
+        <item name="android:layout_marginLeft">30sp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:onClick">onClick</item>
+        <!-- <item name="android:onClick">onClick</item> -->
+    </style>
+
+    <style name="create_card_buttons" parent="layout_wrap_wrap">
+        <item name="android:onClick">onClick</item>
+    </style>
+
+    <style name="linear_button_holder" parent="layout_wrapheight_fillwidth">
+        <item name="android:layout_weight">1</item>
+        <item name="android:gravity">center</item>
+        <item name="android:orientation">vertical</item>
+    </style>
+
+    <style name="color_button" parent="layout_fillheight_wrapwidth">
+        <item name="android:layout_weight">1</item>
+        <item name="android:layout_height">25dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:onClick">onClick</item>
+        <item name="android:layout_margin">10dp</item>
+    </style>
+
+    <style name="modify_buttons" parent="layout_wrapheight_fillwidth">
+        <item name="android:gravity">center</item>
+        <item name="android:textColor">@color/Gray1</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
 
 </resources>

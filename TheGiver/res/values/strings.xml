@@ -1,8 +1,23 @@
 <resources>
 
-    <string name="app_name">TheGiver</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
     <string name="title_activity_main">MainActivity</string>
+    <string name="loading_text">Loading..</string>
+    <string name="hello">Hello World, TheGivverActivity!</string>
+    <string name="app_name">TheGiver</string>
+    <string name="loading">Loading..</string>
+    <string name="new_card">New\nCard</string>
+    <string name="archive">Archive</string>
+    <string name="category">Category</string>
+    <string name="items">Items</string>
+    <string name="backgrounds">Backgrounds</string>
+    <string name="text">Text</string>
+
+    <string-array name="font_array">
+        <item>Font 1</item>
+        <item>Font 2</item>
+        <item>Font 3</item>
+    </string-array>
 
 </resources>

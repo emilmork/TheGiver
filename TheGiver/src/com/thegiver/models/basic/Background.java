@@ -1,6 +1,8 @@
 package com.thegiver.models.basic;
 
-public class Background {
+import com.thegiver.models.graphic.GraphicalObject;
+
+public class Background extends GraphicalObject {
 	String path;
 	String name;
 	

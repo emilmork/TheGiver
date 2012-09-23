@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:id="@+id/sky1"
+        style="@style/layout_wrap_wrap"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/hovedmeny_sky_3" >
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/sky2"
+        style="@style/layout_wrap_wrap"
+        android:layout_below="@id/sky1"
+        android:background="@drawable/hovedmeny_sky_4" >
+    </ImageView>
+
+    <ImageView
+        android:id="@+id/sky3"
+        style="@style/layout_wrap_wrap"
+        android:layout_alignParentTop="true"
+        android:background="@drawable/hovedmeny_sky_1"
+        android:padding="50sp" >
+    </ImageView>
+
+</merge>
